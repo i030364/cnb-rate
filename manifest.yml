@@ -1,0 +1,9 @@
+---
+applications:
+  - name: app-cnbrate
+    command: python app.py
+    buildpacks:
+      - python_buildpack
+    memory: 32M
+    instances: 1
+    health-check-type: process

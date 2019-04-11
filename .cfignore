@@ -1,0 +1,4 @@
+.cfignore
+manifest.yml
+README.md
+.gitignore
