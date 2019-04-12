@@ -1,0 +1,11 @@
+APP_SERVICE_HOST = 'localhost'
+APP_SERVICE_PORT = '8080'
+APP_SERVICE_URL = 'http://{0}:{1}/'.format(APP_SERVICE_HOST, APP_SERVICE_PORT)
+APP_SERVICE_URL_GO = 'http://{0}:{1}/go/'.format(APP_SERVICE_HOST, APP_SERVICE_PORT)
+
+DB_HOST = 'localhost'
+DB_NAME = 'CNBRATES'
+DB_SCHEMA = 'Cnbrates'
+DB_USER = 'CNBRATES_USER'
+DB_PWD = 'Welcome1!'
+

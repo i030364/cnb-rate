@@ -1,0 +1,17 @@
+select 	log0."CORRELATION_ID", log0."TIMESTAMP" as start_time,
+	 	log0."PROCESSING_TIME" as Processing_Time_0, log0."RESULT" as Result_0,
+		log1."PROCESSING_TIME" as Processing_Time_1, log1."RESULT" as Result_1,
+		log2."PROCESSING_TIME" as Processing_Time_2, log2."RESULT" as Result_2
+	from "Resilience"."LOG_TEST" as log0
+	left join "Resilience"."LOG_TEST" as log1 on log0."CORRELATION_ID" = log1."CORRELATION_ID"
+												AND log0."SIMULATION_LAYER" = '0'
+												AND log1."SIMULATION_LAYER" = '1'
+	left join "Resilience"."LOG_TEST" as log2 on log0."CORRELATION_ID" = log2."CORRELATION_ID"
+												AND log0."SIMULATION_LAYER" = '0'
+												AND log2."SIMULATION_LAYER" = '2'
+	where log0."TIMESTAMP" > CURRENT_DATE
+      and log0."SIMULATION_LAYER" = '0'
+	order by start_time
+
+select * from "Resilience"."LOG_TEST" as log order by log."TIMESTAMP"
+delete from "Resilience"."LOG_TEST"
